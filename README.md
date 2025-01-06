@@ -12,3 +12,23 @@ To init terraform file:
 ```
 terraform init
 ```
+
+To preview the modification :
+```
+terraform plan
+```
+
+To apply the modification :
+```
+terraform apply
+```
+
+To see the details of results :
+```
+terraform show
+```
+
+To eliminate the resources :
+```
+terraform destroy
+```
