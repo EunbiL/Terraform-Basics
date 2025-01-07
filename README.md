@@ -67,3 +67,16 @@ terraform refresh
 ```
 
 **Tip** : you can state lock using remote backend (S3 + DynamoDB). It's necessary to avoid conflict the state file
+
+# Structure recommanded : Using Module
+Using modules is good for structure terraform code. For example :
+```
+project/
+├── main.tf
+├── modules/
+│   └── s3/
+│       ├── main.tf
+│       ├── variables.tf
+│       └── outputs.tf
+```
+And also, Terraform Registry provide some community module such as "terraform-aws-modules/vpc/aws"

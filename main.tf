@@ -29,3 +29,12 @@ provider "aws" {
   }
 
 }
+
+module "s3" {
+  source      = "./modules/s3"
+  bucket_name = "heheheterraform"
+}
+
+output "s3_bucket_arn" {
+  value = module.s3.bucket_arn
+}
