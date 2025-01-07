@@ -6,6 +6,17 @@ terraform {
     }
   }
   required_version = ">= 1.3.0"
+
+// This is to put backend storage for terraform state file. You have to create S3 and Dynamo Table on AWS.
+/* 
+  backend "s3" {
+    bucket         = "eunbi-terraform-state"
+    key            = "global/s3/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "terraform-locks"
+  }
+*/
+
 }
 
 provider "aws" {
