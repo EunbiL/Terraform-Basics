@@ -87,3 +87,9 @@ project/
 │       └── outputs.tf
 ```
 And also, Terraform Registry provide some community module such as "terraform-aws-modules/vpc/aws"
+
+To get a diagramme from the code :
+```
+terraform graph > graph.dot
+dot -Tpng graph.dot -o graph.png
+```
