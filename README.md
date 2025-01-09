@@ -8,6 +8,13 @@ To set access id or key:
 aws configure
 ````
 
+Or edit aws credential file :
+```
+nano ~/.aws/credentials 
+export AWS_PROFILE=myprofile
+```
+
+
 To init terraform file:
 ```
 terraform init

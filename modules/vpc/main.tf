@@ -25,3 +25,23 @@ resource "aws_subnet" "private_subnet" {
     Name = "private-subnet"
   }
 }
+
+resource "aws_internet_gateway" "igw" {
+  vpc_id = aws_vpc.main.id
+}
+
+resource "aws_route_table" "public_routing" {
+  vpc_id = aws_vpc.main.id
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.igw.id
+  }
+  tags = {
+    Name = "routing-for-public-subnet"
+  }
+  
+}
+resource "aws_route_table_association" "route_to_internet" {
+  subnet_id      = aws_subnet.public_subnet.id
+  route_table_id = aws_route_table.public_routing.id
+}

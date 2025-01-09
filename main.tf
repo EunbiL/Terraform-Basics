@@ -29,12 +29,15 @@ provider "aws" {
   }
 
 }
-
 module "s3" {
   source      = "./modules/s3"
   bucket_name = "heheheterraform"
 }
-
-output "s3_bucket_arn" {
-  value = module.s3.bucket_arn
+module "vpc" {
+  source      = "./modules/vpc"
+}
+module "instance" {
+  source      = "./modules/instance"
+  public_subnet_id = module.vpc.public_subnet_id
+  private_subnet_id = module.vpc.private_subnet_id
 }
